@@ -6,12 +6,12 @@ import { ${componentName}Props } from "./${componentName}.types";
 
 import "./${componentName}.scss";
 
-const ${componentName}: React.FC<${componentName}Props> = ({ foo }) => (
-    <div data-testid="${componentName}" className="foo-bar">{foo}</div>
-);
-
-export default ${componentName};
+export default function ${componentName} (props: ${componentName}Props) {
+  return (
+    <div data-testid="${componentName}" className="foo-bar">{props.foo}</div>
+  )
+};
 
 `,
-  extension: `.tsx`
+  extension: `.tsx`,
 });

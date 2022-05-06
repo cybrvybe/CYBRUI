@@ -1,7 +1,11 @@
 $font-family: "Avenir Next", Helvetica, Arial, sans-serif;
 
+@font-face {
+  font-family: "BebasNeue";
+  src: url("/src/assets/fonts/BebasNeue-Regular.otf") format("opentype");
+}
 @mixin font-defaults {
-  font-family: $font-family;
+  font-family: "BebasNeue", sans-serif;
 }
 
 @mixin heading {

@@ -2,6 +2,7 @@
 @import "../typography.scss";
 
 .test-component {
+  @include font-defaults;
   background-color: var(--background);
   color: var(--font-color);
   border: 1px solid $harvey-black;
