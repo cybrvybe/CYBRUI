@@ -12,6 +12,7 @@ export type RenderTitleBarProps = {
   brandLogoOnClick: OnClickType;
   closeIconRenderer: () => React.ReactNode;
   closeIconOnClick: OnClickType;
+  title: string;
 };
 export type RenderTitleBarFuncType = (depProps: RenderTitleBarProps) => any;
 
@@ -21,3 +22,11 @@ export type RenderIconBarProps = {
 };
 
 export type RenderIconBarFuncType = (depProps: RenderIconBarProps) => any;
+
+export type RenderModalContentProps = {
+  brandLogoOnClick: OnClickType;
+  closeIconOnClick: OnClickType;
+  title: string;
+  closed: boolean;
+  setClosed: (close: boolean) => void;
+};
