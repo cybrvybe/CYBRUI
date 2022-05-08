@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { IconStyle } from "./iconStyles";
+import { styledWrapperMotionVariants } from "../CybrModal/motionVariants";
+import { IconMotionVariants, IconStyle } from "./iconStyles";
 
 export const renderXIcon = () => {
   const StyledClose = styled.i`
@@ -33,8 +34,14 @@ export const renderXIcon = () => {
     }
   `;
   return (
-    <IconStyle>
-      <StyledClose/>
+    <IconStyle
+      initial={styledWrapperMotionVariants.hidden}
+      animate={styledWrapperMotionVariants.visible}
+      onHoverStart={(e) => IconMotionVariants.hover}
+      whileHover={IconMotionVariants.hover}
+      onHoverEnd={(e) => IconMotionVariants.unHover}
+    >
+      <StyledClose />
     </IconStyle>
   );
 };
