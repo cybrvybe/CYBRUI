@@ -12,5 +12,5 @@ export default function CurrencyChangeCellRenderer(
     <div data-testid="CurrencyChangeCellRenderer" className="foo-bar">
       {props.foo}
     </div>
-  );npm
+  );
 }
