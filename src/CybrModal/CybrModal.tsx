@@ -16,8 +16,8 @@ import styled from "styled-components";
 import { GlobalFonts } from "../globalStyle";
 import { OnClickType } from "../types/types";
 import { ReactCompnent as DragonLogo } from "../../public/icons/dragonSilverLogo.svg";
-import { renderDragonLogo } from "../icons/renderDragonLogo";
-import { renderXIcon } from "../icons/renderXIcon";
+import { renderDragonLogo } from "../icons/dragonAu7oma7a";
+import { renderXIcon } from "../icons/x";
 import PieChart from "../PieChart/PieChart";
 import { AnimatePresence, motion } from "framer-motion";
 import { renderModalContent } from "./renderers";
@@ -54,7 +54,7 @@ export default function CybrModal(props: CybrModalProps) {
       {!open && (
         <div onClick={(e: any) => setIsModalOpen(true)}>Open Modal</div>
       )}
-      <AnimatePresence >
+      <AnimatePresence>
         {open && (
           <Modal open={open}>{renderModalContent(modalContentProps)}</Modal>
         )}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { colors } from "../assets/colors/colors";
 
 const defaultTitleBarHeight = "3rem";
 export const StyledWrapper = styled(motion.div)`
@@ -9,7 +10,7 @@ export const StyledWrapper = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${colors.black.darkest(0.5)};
   font-family: Bebas Neue;
 `;
 export const StyledContainer = styled(motion.div)`
@@ -19,14 +20,14 @@ export const StyledContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: rgba(15, 15, 15, 1);
+  background-color: ${colors.black.dark(1)};
 `;
 
 export const StyledTitleBarWrapper = styled.div({
   width: "100%",
   height: defaultTitleBarHeight,
   display: "flex",
-  backgroundColor: "rgba(5,5,5, 1)",
+  backgroundColor: colors.black.darker(1),
 });
 
 export const StyledTitleWrapper = styled.div({
@@ -35,7 +36,7 @@ export const StyledTitleWrapper = styled.div({
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
-  color: "rgba(100,100,100,1)",
+  color: colors.white.main(1),
   paddingLeft: "0.8rem",
   fontSize: "1rem",
   letterSpacing: "0.1rem",

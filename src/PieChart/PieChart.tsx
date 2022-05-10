@@ -4,14 +4,22 @@ import React from "react";
 import { PieChartProps } from "./PieChart.types";
 import { ResponsivePie } from "@nivo/pie";
 
-import "./PieChart.scss";
 import { PieChartData } from "./data";
 
 export default function PieChart(props: PieChartProps) {
   return (
-    <div data-testid="PieChart" className="foo-bar" style={{ height: 200 }}>
+    <div
+      data-testid="PieChart"
+      className="foo-bar"
+      style={{
+        height: "80%",
+        width: "100%",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+      }}
+    >
       <ResponsivePie
-        borderRadius={0}
         data={PieChartData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
@@ -110,8 +118,8 @@ export default function PieChart(props: PieChartProps) {
             translateX: 0,
             translateY: 56,
             itemsSpacing: 0,
-            itemWidth: 100,
-            itemHeight: 18,
+            itemWidth: 50,
+            itemHeight: 10,
             itemTextColor: "#999",
             itemDirection: "left-to-right",
             itemOpacity: 1,
