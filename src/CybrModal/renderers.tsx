@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
-import { renderDragonLogo } from "../icons/renderDragonLogo";
-import { renderXIcon } from "../icons/renderXIcon";
+import { renderDragonLogo } from "../icons/dragonAu7oma7a";
+import { renderXIcon } from "../icons/x";
 import PieChart from "../PieChart/PieChart";
 import {
   RenderTitleBarFuncType,
@@ -12,8 +12,8 @@ import {
 } from "./CybrModal.types";
 import {
   opacityTransitionMotionVariants,
-  styledWrapperMotionVariants,
-} from "./motionVariants";
+  styledModalWrapperMotionVariants,
+} from "../assets/motionVariants/motionVariants";
 import {
   StyledTitleBarWrapper,
   StyledTitleWrapper,
@@ -81,9 +81,9 @@ export const renderModalContent = (props: RenderModalContentProps) => {
     <StyledWrapper exit={opacityTransitionMotionVariants.exit}>
       <StyledContainer
         key="style-container"
-        initial={styledWrapperMotionVariants.hidden}
-        animate={styledWrapperMotionVariants.visible}
-        exit={styledWrapperMotionVariants.exit}
+        initial={styledModalWrapperMotionVariants.hidden}
+        animate={styledModalWrapperMotionVariants.visible}
+        exit={styledModalWrapperMotionVariants.exit}
       >
         {renderTitleBar(titleBarprops)}
         {renderModalBody()}

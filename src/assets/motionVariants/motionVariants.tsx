@@ -1,4 +1,4 @@
-export const styledWrapperMotionVariants = {
+export const styledModalWrapperMotionVariants = {
   visible: {
     opacity: [0, 1, 1],
     scale: [0, 1.2, 1],
