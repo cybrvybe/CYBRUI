@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { styledWrapperMotionVariants } from "../CybrModal/motionVariants";
+import { styledModalWrapperMotionVariants } from "../assets/motionVariants/motionVariants";
 import { IconMotionVariants, IconStyle } from "./iconStyles";
 
 export const renderXIcon = () => {
@@ -35,8 +35,8 @@ export const renderXIcon = () => {
   `;
   return (
     <IconStyle
-      initial={styledWrapperMotionVariants.hidden}
-      animate={styledWrapperMotionVariants.visible}
+      initial={styledModalWrapperMotionVariants.hidden}
+      animate={styledModalWrapperMotionVariants.visible}
       onHoverStart={(e) => IconMotionVariants.hover}
       whileHover={IconMotionVariants.hover}
       onHoverEnd={(e) => IconMotionVariants.unHover}
