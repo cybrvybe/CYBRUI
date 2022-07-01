@@ -1,3 +1,4 @@
-import TestComponent from "./TestComponent";
+import CybrBody from "./Body";
+import CybrModal from "./CybrModal/CybrModal";
 
-export { TestComponent };
+export { CybrBody, CybrModal };

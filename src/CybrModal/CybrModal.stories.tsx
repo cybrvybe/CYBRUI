@@ -7,7 +7,7 @@ export default {
 };
 
 export const WithBar = () => (
-  <CybrModal title="Accounting: Ledger Analytics" open={true}>
+  <CybrModal title="Accounting: Ledger Analytics" open={false}>
     <h1>Body</h1>
   </CybrModal>
 );

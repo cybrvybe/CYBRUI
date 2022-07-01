@@ -1,0 +1,4 @@
+export type BodyProps = {
+  children: React.ReactNode;
+  backgroundImage?: string;
+};

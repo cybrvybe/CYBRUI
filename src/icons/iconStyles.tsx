@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { colors } from "../assets/colors/colors";
 
-export const IconStyle = styled(motion.div)`
+export const IconStyle = styled(motion.div)<{ color?: any }>`
   background-color: colors.transparent;
   width: 100%;
   height: 100%;
   fontsize: 0.5rem;
-  color: ${colors.red.main(1)};
+  color: ${(props) => (props.color ? props.color : colors.white.main(0.8))};
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   &:hover {
-    color: ${colors.red.neon(1)};
+    color: ${(props) => (props.color ? props.color : colors.white.main(1))};
   }
 `;
 

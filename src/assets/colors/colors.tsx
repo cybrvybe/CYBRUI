@@ -14,6 +14,7 @@ export const colors = {
     darkest: (opacity: number) => toRgba(5, 5, 5, opacity),
     darker: (opacity: number) => toRgba(10, 10, 10, opacity),
     dark: (opacity: number) => toRgba(15, 15, 15, opacity),
+    light: (opacity: number) => toRgba(30, 30, 30, opacity),
   },
   white: {
     main: (opacity: number) => toRgba(100, 100, 100, opacity),

@@ -1,26 +1,16 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
 
-import {
-  CybrModalProps,
-  RenderIconBarFuncType,
-  RenderIconBarProps,
-  RenderModalContentProps,
-  RenderTitleBarFuncType,
-  RenderTitleBarProps,
-} from "./CybrModal.types";
+import { CybrModalProps, RenderModalContentProps } from "./CybrModal.types";
 
 import "./CybrModal.scss";
 import { Modal } from "@material-ui/core";
-import styled from "styled-components";
 import { GlobalFonts } from "../globalStyle";
-import { OnClickType } from "../types/types";
-import { ReactCompnent as DragonLogo } from "../../public/icons/dragonSilverLogo.svg";
-import { renderDragonLogo } from "../icons/dragonAu7oma7a";
-import { renderXIcon } from "../icons/x";
-import PieChart from "../PieChart/PieChart";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { renderModalContent } from "./renderers";
+import CybrBody from "../Body";
+import CybrButton from "../CybrButton";
+import { getScalingTransition } from "../assets/motionVariants/motionVariants";
 export default function CybrModal(props: CybrModalProps) {
   const [isModalOpen, setIsModalOpen] = useState(props.open);
   const [closed, setClosed] = useState(false);
@@ -49,16 +39,21 @@ export default function CybrModal(props: CybrModalProps) {
   };
 
   return (
-    <div className="foo-bar" data-testid="CybrModal">
+    <CybrBody>
       <GlobalFonts />
-      {!open && (
-        <div onClick={(e: any) => setIsModalOpen(true)}>Open Modal</div>
-      )}
       <AnimatePresence>
+        {!open && (
+          <CybrButton
+            text="Open Modal"
+            onClick={(e: any) => setIsModalOpen(true)}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {open && (
           <Modal open={open}>{renderModalContent(modalContentProps)}</Modal>
         )}
       </AnimatePresence>
-    </div>
+    </CybrBody>
   );
 }

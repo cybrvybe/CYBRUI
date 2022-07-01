@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { IconStyle } from "./iconStyles";
 
-export default function BriefcaseIcon() {
+export default function BriefcaseIcon(color?: any) {
   const StyledBriefcase = styled.i`
     & {
       box-sizing: border-box;
@@ -43,7 +43,7 @@ export default function BriefcaseIcon() {
     }
   `;
   return (
-    <IconStyle>
+    <IconStyle {...(color && color)}>
       <StyledBriefcase />
     </IconStyle>
   );

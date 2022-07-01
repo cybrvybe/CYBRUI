@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { styledModalWrapperMotionVariants } from "../assets/motionVariants/motionVariants";
 import { IconMotionVariants, IconStyle } from "./iconStyles";
 
-export const renderXIcon = () => {
+export const renderXIcon = (color?: any) => {
   const StyledClose = styled.i`
     & {
       box-sizing: border-box;
@@ -40,6 +40,7 @@ export const renderXIcon = () => {
       onHoverStart={(e) => IconMotionVariants.hover}
       whileHover={IconMotionVariants.hover}
       onHoverEnd={(e) => IconMotionVariants.unHover}
+      color={color}
     >
       <StyledClose />
     </IconStyle>
