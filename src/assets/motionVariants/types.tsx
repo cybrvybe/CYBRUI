@@ -3,13 +3,18 @@ import { getScalingTransition } from "./motionVariants";
 export type MotionDurationType = {
   enter: number;
   exit: number;
+  hasExit?: boolean;
 };
 
+export enum MotionTransitionVariantEnum {
+  EXIT = 'exit',
+  HIDDEN = 'hidden',
+  VISIBLE = 'visible',
+  HOVER = 'hover'
+}
+
 export type MotionDictType = {
-  exit: any;
-  hidden: any;
-  visible: any;
-  hover?: any;
+  [key: string]: any
 };
 
 export type GetOpacityTransitionMotionVariantsFuncType = (
@@ -20,6 +25,7 @@ export type GetDirectionTransitionMotionVariantsProps = {
   orientation: "vertical" | "horizontal";
   isInverted?: boolean;
   duration?: MotionDurationType;
+  hasExit?: boolean;
 };
 
 export type GetDirectionTransitionMotionVariantFuncType = (
@@ -30,6 +36,7 @@ export type GetScalingTransitionProps = {
   duration?: MotionDurationType;
   multiplier?: number;
   isInverted?: boolean;
+  hasExit?: boolean;
 };
 
 export type GetScalingTransitionFuncType = (
