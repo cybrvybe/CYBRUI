@@ -6,6 +6,7 @@ import {
   GetScalingTransitionProps,
   MotionDictType,
   MotionDurationType,
+  MotionTransitionVariantEnum,
 } from "./types";
 
 export const styledModalWrapperMotionVariants = {
@@ -49,6 +50,12 @@ export const getOpacityTransitionMotionVariants: GetOpacityTransitionMotionVaria
         opacity: 0,
       },
     };
+
+    motionDict[MotionTransitionVariantEnum.VISIBLE] = {opacity: 1};
+    motionDict[MotionTransitionVariantEnum.HIDDEN] = {opacity: 0};
+    if (props?.hasExit) {
+      motionDict[MotionTransitionVariantEnum.EXIT] = {opacity: 0.4};
+    }
     return motionDict;
   };
 
@@ -68,46 +75,63 @@ export const getDirectionTransitionMotionVariants: GetDirectionTransitionMotionV
     );
 
     if (props.orientation === "horizontal") {
-      const horizontalMotionDict: MotionDictType = {
-        hidden: {
-          x: startPx,
-          ...opacityTransition.hidden,
-          transition: {
-            when: "beforeChildren",
-          },
+      const hiddenHorizontalTransition = {
+        x: startPx,
+        ...opacityTransition.hidden,
+        transition: {
+          when: "beforeChildren",
         },
-        visible: {
-          x: 0,
+      };
+
+      const visibleHorizontalTransition = {
+        x: 0,
           ...opacityTransition.visible,
           transition: {
             when: "beforeChildren",
           },
-        },
-        exit: {
+      }
+
+      const exitHorizontalTransition = {
           x: endPx,
           ...opacityTransition.exit,
           transition: {
             when: "beforeChildren",
           },
-        },
+        
+      }
+      const horizontalMotionDict: MotionDictType = {
       };
+
+      horizontalMotionDict[MotionTransitionVariantEnum.HIDDEN] = hiddenHorizontalTransition;
+      horizontalMotionDict[MotionTransitionVariantEnum.VISIBLE] = visibleHorizontalTransition;
+      if (props?.hasExit) {horizontalMotionDict[MotionTransitionVariantEnum.EXIT] = exitHorizontalTransition;}
 
       return horizontalMotionDict;
     } else {
-      const verticalMotionDict: MotionDictType = {
-        hidden: {
-          y: startPx,
-          ...opacityTransition.hidden,
-        },
-        visible: {
-          y: 0,
-          ...opacityTransition.visible,
-        },
-        exit: {
-          y: endPx,
-          ...opacityTransition.exit,
-        },
+
+      const hiddenVerticalTransition = {
+        y: startPx,
+        ...opacityTransition.hidden,
       };
+
+      const visibleVerticalTransition = {
+        y: 0,
+        ...opacityTransition.visible,
+      };
+
+      const exitVerticalTransition = {
+        y: endPx,
+        ...opacityTransition.exit,
+      };
+
+      const verticalMotionDict: MotionDictType = {
+      };
+
+      verticalMotionDict[MotionTransitionVariantEnum.VISIBLE] = visibleVerticalTransition;
+      verticalMotionDict[MotionTransitionVariantEnum.HIDDEN] = hiddenVerticalTransition;
+      if (props?.hasExit) {
+        verticalMotionDict[MotionTransitionVariantEnum.EXIT] = exitVerticalTransition;
+      }
 
       return verticalMotionDict;
     }
@@ -125,32 +149,35 @@ export const getScalingTransition: GetScalingTransitionFuncType = (
 
   const endScale = 1;
 
-  const scalingMotionDict: MotionDictType = {
-    hidden: {
-      scale: initScale,
-      transition: {
-        when: "beforeChildren",
-      },
-    },
-    visible: {
-      scale: endScale,
-      transition: {
-        when: "beforeChildren",
-      },
-    },
-    exit: {
-      scale: initScale,
-      transition: {
-        when: "beforeChildren",
-      },
-    },
-    hover: {
-      scale: [endScale, endScale + 0.25, endScale + 0.1],
-      transition: {
-        when: "beforeChildren",
-      },
+  const motionDict: MotionDictType = {}
+  motionDict[MotionTransitionVariantEnum.HIDDEN] = {
+    scale: initScale,
+    transition: {
+      when: "beforeChildren",
+    }
+  };
+  motionDict[MotionTransitionVariantEnum.VISIBLE] = {
+    scale: endScale,
+    transition: {
+      when: "beforeChildren",
     },
   };
+  motionDict[MotionTransitionVariantEnum.HOVER] = {
+    scale: [endScale, endScale + 0.25, endScale + 0.1],
+    transition: {
+      when: "beforeChildren",
+    },
+  }
+  if (props?.hasExit){
+    motionDict[MotionTransitionVariantEnum.EXIT] = {
+      scale: initScale,
+      transition: {
+        when: "beforeChildren",
+      },
+    }
+  }
 
-  return scalingMotionDict;
+  
+
+  return motionDict;
 };
